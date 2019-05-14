@@ -18,7 +18,7 @@ module.exports = sub = (...args) => {
 }
 
 module.exports = compose = (...fn) => (...n) => {
-    return fn.reverse().reduce((acc, curr) => curr(acc), n);
+    return fn.reduceRight((acc, curr) => curr(acc), n);
 }
 
 module.exports = transposenxn = (...n) => {
