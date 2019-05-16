@@ -21,3 +21,5 @@ const bigArr = [
 console.log(transpose(...bigArr))
 
 console.log(zipmap(["a", "b", "c"], [1, 2, 3]))
+
+console.log(zipwith(add, [1, 2, 3], [1, 2, 3]))

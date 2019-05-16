@@ -5,16 +5,12 @@ module.exports = clist = (...args) => {
 
 //return sum of args
 module.exports = add = (...args) => {
-    return args.length > 1 ?
-        args.reduce((n, m) => (n + m)) :
-        args[0].reduce((n, m) => (n + m));
+    return args.flat().reduce((n, m) => (n + m));
 }
 
 //return substraction of args from left to right (first one being the number to substract from)
 module.exports = sub = (...args) => {
-    return args.length > 1 ?
-        args.reduce((n, m) => (n - m)) :
-        args[0].reduce((n, m) => (n - m));
+    return args.flat().reduce((n, m) => (n - m));
 }
 
 module.exports = compose = (...fn) => (...n) => {
@@ -31,4 +27,8 @@ module.exports = transpose = (...n) => {
 
 module.exports = zipmap = (...n) => {
     return n[0].reduce((acc, curr, i) => (acc[curr] = n[1][i], acc), {})
+}
+
+module.exports = zipwith = (f, ...n) => {
+    return transpose(...n).map(m => f(...m));
 }
