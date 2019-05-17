@@ -95,11 +95,11 @@ module.exports = freq = (seq) => {
 module.exports = imperativePartition = (n, step, seq) => {
     let arr = Array();
     for (let i = 0; i < seq.length - 1; i += step) {
-        arr = cons(arr, seq.slice(i, i + n));
+        arr.push(seq.slice(i, i + n));
     }
     return arr;
 }
 
 module.exports = partition = (n, step, seq) => {
-    return seq.reduce((acc, _, i) => ((i % step == 0 ? acc.push(seq.slice(i, i + n)) : null), acc), []).filter((n) => n != []);
+    return seq.reduce((acc, _, i) => ((i % step == 0 ? acc.push(seq.slice(i, i + n)) : null), acc), []);
 }

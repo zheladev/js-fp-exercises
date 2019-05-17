@@ -33,16 +33,35 @@ var l = require('./lib');
 
 // console.log(cdr([1, 2, 3, 4, 5]))
 
-const arr = [1, 2, 3]
-console.log(arr[0])
-console.log(arr[1])
-console.log(arr.slice(2))
+// const arr = [1, 2, 3]
+// console.log(arr[0])
+// console.log(arr[1])
+// console.log(arr.slice(2))
 
-console.log(interleave([1, 2, 3], ["a", "b", "c"], [4, 5, 6]))
+// console.log(interleave([1, 2, 3], ["a", "b", "c"], [4, 5, 6]))
 
-const gt5 = n => n > 5;
-const even = n => n % 2 == 0;
+// const gt5 = n => n > 5;
+// const even = n => n % 2 == 0;
 
-console.log(freq("asjkdhaskdjaksd"))
-console.log(freq([1, 2, 3, 4, 1, 3, 4, 2, 1, 1, 1, 1, 1, 1]))
-console.log(partition(3, 5, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+// console.log(freq("asjkdhaskdjaksd"))
+// console.log(freq([1, 2, 3, 4, 1, 3, 4, 2, 1, 1, 1, 1, 1, 1]))
+// console.log(partition(3, 5, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+const array = [...Array(10000000).keys()];
+console.log('....IMPERATIVE')
+console.time();
+imperativePartition(1, 1, array)
+console.timeEnd();
+
+console.time();
+imperativePartition(3, 3, array)
+console.timeEnd();
+
+console.log('....FUNCTIONAL')
+console.time();
+partition(1, 1, array)
+console.timeEnd();
+
+console.time();
+partition(3, 3, array)
+console.timeEnd();
