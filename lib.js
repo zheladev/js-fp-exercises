@@ -8,9 +8,9 @@ module.exports = add = (...args) => {
     return args.flat().reduce((n, m) => (n + m));
 }
 
-//return substraction of args from left to right (first one being the number to substract from)
+//return substraction of args from left to right (leftmost being the number to substract from)
 module.exports = sub = (...args) => {
-    args.flat().reduce((n, m) => (n - m));
+    return args.flat().reduce((n, m) => (n - m));
 }
 
 module.exports = compose = (...fn) => (...n) => {
