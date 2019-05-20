@@ -93,7 +93,7 @@ module.exports = freq = (seq) => {
 }
 
 module.exports = imperativePartition = (n, step, seq) => {
-    let arr = Array();
+    let arr = [];
     for (let i = 0; i < seq.length - 1; i += step) {
         arr.push(seq.slice(i, i + n));
     }

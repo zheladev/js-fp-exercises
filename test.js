@@ -47,21 +47,25 @@ var l = require('./lib');
 // console.log(freq([1, 2, 3, 4, 1, 3, 4, 2, 1, 1, 1, 1, 1, 1]))
 // console.log(partition(3, 5, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
 
-const array = [...Array(10000000).keys()];
-console.log('....IMPERATIVE')
-console.time();
-imperativePartition(1, 1, array)
-console.timeEnd();
+const array = [...Array(1000000).keys()];
 
-console.time();
-imperativePartition(3, 3, array)
-console.timeEnd();
+for (let i = 1; i < 100; i++) {
+    console.log('....IMPERATIVE')
+    console.time();
+    imperativePartition(1, 1, array)
+    console.timeEnd();
 
-console.log('....FUNCTIONAL')
-console.time();
-partition(1, 1, array)
-console.timeEnd();
+    console.time();
+    imperativePartition(3, 3, array)
+    console.timeEnd();
 
-console.time();
-partition(3, 3, array)
-console.timeEnd();
+    console.log('....FUNCTIONAL')
+    console.time();
+    partition(1, 1, array)
+    console.timeEnd();
+
+    console.time();
+    partition(3, 3, array)
+    console.timeEnd();
+    console.log('--------------------')
+}
